@@ -6,8 +6,8 @@ function onDeviceReady() {
     alert("El dispositivo esta listo.");
     document.addEventListener("resume", onResume, false);
     document.addEventListener("backbutton", onBackKeyDown, false);
-    var ref = window.open('http://apache.org', '_blank', 'location=yes');
-    var ref2 = window.open(encodeURI('http://ja.m.wikipedia.org/wiki/ハングル'), '_blank', 'location=yes');
+    //var ref = window.open('http://apache.org', '_blank', 'location=yes');
+    //var ref2 = window.open(encodeURI('http://ja.m.wikipedia.org/wiki/ハングル'), '_blank', 'location=yes');
 
     /*
     var loginButton = $('#login-with-facebook');
