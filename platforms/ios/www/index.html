@@ -8,11 +8,12 @@
 	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
 	<script src="js/jquery-1.11.1.min.js"></script>
 	<script src="js/jquery.mobile-1.4.5.min.js"></script>
-	<!-- <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
-	<script src="js/app.js"></script> -->
+	<script type="text/javascript" src="js/firebase.js"></script>
+	<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+	<script src="js/app.js"></script>
 
 </head>
-<body onload="onLoad()">
+<body onload="">
 
 <div data-role="page" id="page1">
 
@@ -24,13 +25,13 @@
 	<div role="main" class="ui-content" style="margin-top:40%">
 		<form>
      <label for="text-1">Usuario:</label>
-     <input type="text" name="text-1" id="text-1" value="">
+     <input type="text" name="user" value="">
 		<label for="text-2">Password:</label>
-     <input type="password" name="text-2" id="text-2" value="">
+     <input type="password" name="passwd" value="">
 		<a href="#page2" class="ui-btn ui-corner-all">Ingresar</a>
 		</form>
 		<div align="center">
-		<a href="#page2">Recordar</a> | <a href="#page2">Registrarse</a><br/>
+		<a href="#page2">Recordar</a> | <a href="#registrar">Registrarse</a><br/>
 		<a id="login-with-facebook">Login with Facebook</a>
 	  </div>
 	</div><!-- /content -->
@@ -72,5 +73,33 @@
 	</div><!-- /footer -->
 </div><!-- /page -->
 
+<div data-role="page" id="registrar">
+
+	<div data-role="header" data-position="fixed">
+		<h1>Registrar</h1>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content">
+		<form>
+     <label for="text-1">Email:</label>
+     <input type="text" name="text-1" id="text-1" value="">
+		<label for="text-2">Password:</label>
+     <input type="password" name="text-2" id="text-2" value="">
+		<button name="registrarse" id="registrarse" class="ui-btn ui-corner-all">Registrar</button>
+		</form>
+    <a href="#page1">Volver</a>
+	</div><!-- /content -->
+
+	<div id="footer" data-role="footer" data-position="fixed">
+	  <h4>2015</h4>
+	</div><!-- /footer -->
+</div><!-- /page -->
+<script>
+	$("#registrarse").click(function() {
+		alert("click");
+	$("#text-1").val("");
+	$("#text-2").val("");
+});
+</script>
 </body>
 </html>

@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
 	<script src="js/jquery-1.11.1.min.js"></script>
 	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+	<script type="text/javascript" src="js/firebase.js"></script>
 	<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
 	<script src="js/app.js"></script>
 
@@ -24,13 +25,13 @@
 	<div role="main" class="ui-content" style="margin-top:40%">
 		<form>
      <label for="text-1">Usuario:</label>
-     <input type="text" name="text-1" id="text-1" value="">
+     <input type="text" name="usuario" id="usuario" value="bobtony@">
 		<label for="text-2">Password:</label>
-     <input type="password" name="text-2" id="text-2" value="">
-		<a href="#page2" class="ui-btn ui-corner-all">Ingresar</a>
+     <input type="password" name="passwd" id="passwd" value="">
+		<button id="ingresar" name="ingresar" class="ui-btn ui-corner-all">Ingresar</button>
 		</form>
 		<div align="center">
-		<a href="#page2">Recordar</a> | <a href="#page2">Registrarse</a><br/>
+		<a href="#page2">Recordar</a> | <a href="#registrar">Registrarse</a><br/>
 		<a id="login-with-facebook">Login with Facebook</a>
 	  </div>
 	</div><!-- /content -->
@@ -72,5 +73,73 @@
 	</div><!-- /footer -->
 </div><!-- /page -->
 
+<div data-role="page" id="registrar">
+
+	<div data-role="header" data-position="fixed">
+		<h1>Registrar</h1>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content">
+		<form>
+     <label for="text-1">Email:</label>
+     <input type="text" name="text-1" id="text-1" value="sebastian@">
+		<label for="text-2">Password:</label>
+     <input type="password" name="text-2" id="text-2" value="">
+		<button name="registrarse" id="registrarse" class="ui-btn ui-corner-all">Registrar</button>
+		</form>
+    <a href="#page1">Volver</a>
+	</div><!-- /content -->
+
+	<div id="footer" data-role="footer" data-position="fixed">
+	  <h4>2015</h4>
+	</div><!-- /footer -->
+</div><!-- /page -->
+<script>
+	$("#registrarse").click(function() {
+
+	  var txtemail = $("#text-1").val();
+	  var txtpass = $("#text-2").val();
+
+		var user = {
+			email: txtemail,
+			password: txtpass
+		};
+
+		createUser(user);
+		//alert("Usuario: " + user.email + " Password: " + user.password);
+});
+
+$("#ingresar").click(function() {
+
+	var txtemail = $("#usuario").val();
+	var txtpass = $("#passwd").val();
+
+	var user = {
+		email: txtemail,
+		password: txtpass
+	};
+	alert("Usuario: " + user.email + " Password: " + user.password);
+	var ref = new Firebase("https://phonegaptemplate.firebaseio.com/");
+  ref.authWithPassword({
+  "email": user.email,
+  "password": user.password
+}, function(error, authData) {
+  if (error) {
+    //console.log("Login Failed!", error);
+    alert("Login Failed!");
+  } else {
+    //console.log("Authenticated successfully with payload:", authData);
+    alert("Autenticado exitosamente");
+		$(':mobile-pagecontainer').pagecontainer('change', '#page2', {
+        transition: 'flip',
+        changeHash: false,
+        reverse: true,
+        showLoadMsg: true
+    });
+  }
+	});
+	//alert("Usuario: " + user.email + " Password: " + user.password);
+});
+</script>
 </body>
 </html>
