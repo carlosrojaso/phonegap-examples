@@ -1,15 +1,65 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+	<title>Page Title</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+	<script src="js/app.js"></script>
+	</script>
 </head>
-<body>
-  <form id="login">
-    <label for="text-basic">User:</label>
-    <input type="text" id="text-basic" name="text-basic" />
-  </form>
-  <script type="javascript" src="js/jquery-1.11.1.min.js"></script>
-  <script type="javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
-  </script>
+<body onload="onLoad()">
+
+<div data-role="page" id="page1">
+
+	<div data-role="header">
+		<h1>Login</h1>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content">
+		<p>Page content goes here.</p>
+    <a href="#page2">Ingresar</a>
+	</div><!-- /content -->
+
+	<div data-role="footer">
+		<h4>2015</h4>
+	</div><!-- /footer -->
+</div>
+<!-- /page -->
+<div data-role="page" id="page2">
+
+	<div data-role="header">
+		<h1>Dashboard</h1>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content">
+		<p>Page content goes here.</p>
+    <a href="#page1">Salir</a> | <a href="#page3">Perfil</a>
+	</div><!-- /content -->
+
+	<div data-role="footer">
+		<h4>Page Footer</h4>
+	</div><!-- /footer -->
+</div><!-- /page -->
+<div data-role="page" id="page3">
+
+	<div data-role="header">
+		<h1>Perfil</h1>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content">
+		<p>Page content goes here.</p>
+    <a href="#page2">Volver</a>
+	</div><!-- /content -->
+
+	<div data-role="footer">
+		<h4>Page Footer</h4>
+	</div><!-- /footer -->
+</div><!-- /page -->
+
 </body>
 </html>
